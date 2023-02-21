@@ -20,3 +20,11 @@ services:
            - 443:443
         volumes:
            - ../:/var/www/app/
+           - ./app.conf:/etc/apache2/sites-available/app.conf
+    phpmyadmin:
+        container_name: "phpmyadmin"
+        image: phpmyadmin
+        depends_on:
+            - db
+        ports:
+           - 8081:80
