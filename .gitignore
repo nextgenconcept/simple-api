@@ -55,3 +55,4 @@
 ###> symfony/phpunit-bridge ###
 .phpunit
 ###< symfony/phpunit-bridge ###
+/docker/data/
