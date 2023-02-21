@@ -21,7 +21,7 @@ RUN rm -rf /var/www/html
 RUN a2ensite app.conf
 
 # php
-RUN apt install -q -y php libapache2-mod-php php-zip php-redis
+RUN apt install -q -y php libapache2-mod-php php-zip php-redis php-curl php-mysql php-xml
 
 # composer
 RUN wget https://getcomposer.org/download/latest-stable/composer.phar
