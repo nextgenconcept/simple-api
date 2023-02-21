@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/citizen63000/easy-api-bundle.git",
-                "reference": "96a88ee2fcb38ec7ac2090734b5c0b2f18d498d7"
+                "reference": "87839c0324d7ed46b4278dc196789b333ab4f5aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/citizen63000/easy-api-bundle/zipball/96a88ee2fcb38ec7ac2090734b5c0b2f18d498d7",
-                "reference": "96a88ee2fcb38ec7ac2090734b5c0b2f18d498d7",
+                "url": "https://api.github.com/repos/citizen63000/easy-api-bundle/zipball/87839c0324d7ed46b4278dc196789b333ab4f5aa",
+                "reference": "87839c0324d7ed46b4278dc196789b333ab4f5aa",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "source": "https://github.com/citizen63000/easy-api-bundle/tree/master",
                 "issues": "https://github.com/citizen63000/easy-api-bundle/issues"
             },
-            "time": "2023-02-03T18:20:46+00:00"
+            "time": "2023-02-21T13:15:46+00:00"
         },
         {
             "name": "citizen63000/easy-api-jwt-authentication",
