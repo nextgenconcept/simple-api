@@ -21,12 +21,12 @@ class Book extends AbstractBaseEntity
     protected ?string $author = null;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable==true)
      */
     protected ?string $summary = null;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable==true)
      */
     protected ?int $year = null;
 

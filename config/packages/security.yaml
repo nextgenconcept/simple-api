@@ -71,4 +71,4 @@ security:
         - { path: '^/token/refresh',                        roles: IS_AUTHENTICATED_ANONYMOUSLY   }
         - { path: '^/reset-password',                       roles: IS_AUTHENTICATED_ANONYMOUSLY   }
         - { path: '^/authenticate',                         roles: IS_AUTHENTICATED_ANONYMOUSLY   }
-        - { path: ^/,                                       roles: ROLE_API_USER                  }
+        - { path: ^/,                                       roles: ROLE_USER                  }
