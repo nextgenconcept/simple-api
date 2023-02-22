@@ -13,7 +13,7 @@ STEP=1
 #
 
 echo "${STEP} - Set rights on framework files"
-#chown -R www-data:www-data *
+chown -R www-data var/*
 #chmod -R 775 *
 HTTPDUSER=$(ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1)
 setfacl -dR -m u:"$HTTPDUSER":rwX -m u:$(whoami):rwX var
