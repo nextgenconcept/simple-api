@@ -9,6 +9,8 @@ services:
             - MARIADB_ROOT_PASSWORD=easyma
         volumes:
             - ./data/dev:/var/lib/mysql/
+        networks:
+          - local
     api:
         container_name: "api"
         image: citizen63000/ubuntu-php-mariadb:1.0
@@ -22,6 +24,8 @@ services:
            - ../:/var/www/app/
            - ./app.conf:/etc/apache2/sites-available/app.conf
            - ./ports.conf:/etc/apache2/ports.conf
+        networks:
+           - local
     phpmyadmin:
         container_name: "phpmyadmin"
         image: phpmyadmin
@@ -29,3 +33,7 @@ services:
             - db
         ports:
            - 8081:80
+        networks:
+           - local
+networks:
+  local:
