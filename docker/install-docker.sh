@@ -20,7 +20,7 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(
 # Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose -y
 
-usermod -aG docker lionel
+usermod -aG docker $USER
 newgrp docker
 # set for elasticsearch
 sysctl -w vm.max_map_count=262144
