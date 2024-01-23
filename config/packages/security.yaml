@@ -72,4 +72,4 @@ security:
         - { path: '^/token/refresh',                        roles: PUBLIC_ACCESS   }
         - { path: '^/reset-password',                       roles: PUBLIC_ACCESS   }
         - { path: '^/authenticate',                         roles: PUBLIC_ACCESS   }
-        - { path: ^/,                                       roles: ROLE_API_USER                  }
+        - { path: ^/,                                       roles: ROLE_USER       }

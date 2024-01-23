@@ -12,13 +12,14 @@ nelmio_api_doc:
             contact:
                 name: 'nextgen concept'
                 email: 'ngconnected@gmail.com'
+        security:
+            - Bearer: [ ]
         components:
             securitySchemes:
                 Bearer:
-                    type: apiKey
-                    description: 'Value: Bearer {jwt}'
-                    name: Authorization
-                    in: header
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
             schemas:
                 security_auth:
                     $ref: '#/components/schemas/security_auth'
@@ -140,17 +141,6 @@ nelmio_api_doc:
                     required: true
                     schema:
                         type: "string"
-#                # queries
-#                createData:
-#                    name: data
-#                    in: "body"
-#                    description: "Create data."
-#                    required: true
-#                updateData:
-#                    name: data
-#                    in: "body"
-#                    description: "Update data."
-#                    required: true
         paths:
             /token/refresh:
                 post:
@@ -172,7 +162,7 @@ nelmio_api_doc:
                                         username:
                                             type: string
                                             description: 'Username'
-                                            example: 'j.doe'
+                                            example: 'j.doe@mail.com'
                                         password:
                                             type: string
                                             description: 'Password'
