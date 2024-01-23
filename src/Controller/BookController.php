@@ -23,7 +23,14 @@ class BookController extends AbstractSimpleApiController
     /**
      * @Route("/{id}", methods={"GET"}, requirements={"id"="\d+"}, name="_get", )
      *
-     * @OA\Response(response=200, description="Successful operation"),
+     * @OpenApi\Annotations\Response(
+     *      response=200,
+     *      description="Successful operation",
+     *      @Nelmio\ApiDocBundle\Annotation\Model(
+     *           type=self::entityClass
+     *       )
+     *  ),
+     *
      * @OA\Response(response="404", description="Entity not found"),
      */
     public function read(Request $request): Response
@@ -53,7 +60,14 @@ class BookController extends AbstractSimpleApiController
      *     required=true,
      *     @OA\JsonContent(ref=@Model(type=self::entityCreateTypeClass))
      * ),
-     * @OA\Response(response=200, description="Successful operation"),
+     *
+     * @OA\Response(
+     *      response=201,
+     *      description="Successful operation",
+     *      @Nelmio\ApiDocBundle\Annotation\Model(
+     *           type=self::entityClass
+     *       )
+     * )
      */
     public function create(Request $request): Response
     {
@@ -78,7 +92,13 @@ class BookController extends AbstractSimpleApiController
      * @Route("/{id}", methods={"PUT"}, requirements={"id"="\d+"}, name="_update")
      *
      * @OA\RequestBody(required=true, @OA\JsonContent(ref=@Model(type=self::entityUpdateTypeClass))),
-     * @OpenApi\Annotations\Response(response=200, description="Successful operation"),
+     * @OA\Response(
+     *      response=200,
+     *      description="Successful operation",
+     *      @Nelmio\ApiDocBundle\Annotation\Model(
+     *           type=self::entityClass
+     *       )
+     *  ),
      * @OA\Response(response="404", description="Entity not found"),
      */
     public function update(Request $request): Response
@@ -100,7 +120,18 @@ class BookController extends AbstractSimpleApiController
     /**
      * @Route("", methods={"GET"}, name="_getAll", )
      *
-     * @OA\Response(response=200, description="Successful operation"),
+     * @OA\Response(
+     *      response=200,
+     *      description="Successful operation",
+     *      @OA\JsonContent(
+     *          type="array",
+     *          @OA\Items(
+     *               ref=@Nelmio\ApiDocBundle\Annotation\Model(
+     *                   type=self::entityClass
+     *               )
+     *           )
+     *      )
+     *  )
      */
     public function getAll()
     {
