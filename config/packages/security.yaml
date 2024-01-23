@@ -1,6 +1,10 @@
 security:
     erase_credentials: false
-    encoders:
+    enable_authenticator_manager: true
+    password_hashers:
+        App\Entity\User:
+            algorithm: bcrypt
+            cost: 15
         default:
             algorithm: bcrypt
             cost: 15
@@ -32,12 +36,12 @@ security:
         token-refresh:
             pattern:  ^/token/refresh
             stateless: true
-            anonymous: true
+            security: false
 
         reset-password:
             pattern:  ^/reset-password
             stateless: true
-            anonymous: true
+            security: false
 
         update-password:
             pattern:  ^/update-password
@@ -47,11 +51,8 @@ security:
             pattern:   ^/authenticate
             provider: app_user_provider
             stateless: true
-            anonymous: true
             json_login:
                 check_path:          /authenticate
-                username_path:       username
-                password_path:       password
                 success_handler:     lexik_jwt_authentication.handler.authentication_success
                 failure_handler:     lexik_jwt_authentication.handler.authentication_failure
 
@@ -65,10 +66,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/$,                                      roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: 'https'  }
-        - { path: ^/(_(profiler|wdt)|css|images|js)/,       roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: 'https'  }
-        - { path: ^/api-doc,                                roles: IS_AUTHENTICATED_ANONYMOUSLY   }
-        - { path: '^/token/refresh',                        roles: IS_AUTHENTICATED_ANONYMOUSLY   }
-        - { path: '^/reset-password',                       roles: IS_AUTHENTICATED_ANONYMOUSLY   }
-        - { path: '^/authenticate',                         roles: IS_AUTHENTICATED_ANONYMOUSLY   }
-        - { path: ^/,                                       roles: ROLE_USER                  }
+        - { path: ^/$,                                      roles: PUBLIC_ACCESS, requires_channel: 'https'  }
+        - { path: ^/(_(profiler|wdt)|css|images|js)/,       roles: PUBLIC_ACCESS, requires_channel: 'https'  }
+        - { path: ^/api-doc,                                roles: PUBLIC_ACCESS   }
+        - { path: '^/token/refresh',                        roles: PUBLIC_ACCESS   }
+        - { path: '^/reset-password',                       roles: PUBLIC_ACCESS   }
+        - { path: '^/authenticate',                         roles: PUBLIC_ACCESS   }
+        - { path: ^/,                                       roles: ROLE_API_USER                  }

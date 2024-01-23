@@ -11,8 +11,8 @@ services:
             - ./data/dev:/var/lib/mysql/
         networks:
           - local
-    api:
-        container_name: "api"
+    simple-api:
+        container_name: "simple-api"
         image: citizen63000/ubuntu-php-mariadb:1.0
 #        build: .
         depends_on:

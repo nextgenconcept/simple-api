@@ -6,17 +6,19 @@ nelmio_api_doc:
             path_patterns: [ ^/user ]
     documentation:
         info:
-            title: 'API'
-            description: 'API documentation'
+            title: 'HomeOS - API'
+            description: 'API documentation for HomeOS API'
             version: 1.0.0
-        security:
-            - Bearer: []
+            contact:
+                name: 'nextgen concept'
+                email: 'ngconnected@gmail.com'
         components:
             securitySchemes:
                 Bearer:
-                    type: http
-                    scheme: bearer
-                    bearerFormat: JWT
+                    type: apiKey
+                    description: 'Value: Bearer {jwt}'
+                    name: Authorization
+                    in: header
             schemas:
                 security_auth:
                     $ref: '#/components/schemas/security_auth'
@@ -170,7 +172,7 @@ nelmio_api_doc:
                                         username:
                                             type: string
                                             description: 'Username'
-                                            example: 'j.doe@mail.com'
+                                            example: 'j.doe'
                                         password:
                                             type: string
                                             description: 'Password'
